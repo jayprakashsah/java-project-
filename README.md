@@ -1,5 +1,5 @@
 # java-project-
-
+--------------------------------------------------------------------------------------------------------------
 
 🏦 Bank Management System (Mini Core Banking App)
 
@@ -9,7 +9,7 @@ The Bank Management System is a Java-based mini core banking application that al
 
 This project is built using Object-Oriented Programming (OOP) concepts like classes, objects, inheritance, and encapsulation. It is designed as a console-based application for beginners and intermediate learners to understand how a simple banking system works.
 
-⸻
+
 
  Features
 	•	 Create New Account (savings/current)
@@ -20,14 +20,14 @@ This project is built using Object-Oriented Programming (OOP) concepts like clas
 	•	 Close/Delete an Account
 	•	 Data Persistence using file handling
 
-⸻
+
 
  Technologies Used
 	•	Java (Core Java, OOP concepts)
 	•	Collections (ArrayList, HashMap)
 	•	File Handling (for storing accounts and transactions)
 
-⸻
+
 
  Future Enhancements
 	•	Add a Graphical User Interface (GUI) using JavaFX or Swing
@@ -60,3 +60,47 @@ Learning Outcomes
 	•	Working with collections like ArrayList and HashMap
 	•	Implementing file handling for data persistence
 	•	Structuring a real-world console application in Java
+
+
+
+**UML Class Diagram**
+
+                +-------------------+
+                |      Account      |
+                +-------------------+
+                | - accountNumber   |
+                | - accountHolder   |
+                | - balance         |
+                +-------------------+
+                | + deposit()       |
+                | + withdraw()      |
+                | + getBalance()    |
+                +-------------------+
+                         ▲
+                         │
+        +----------------+----------------+
+        |                                 |
++-------------------+          +-------------------+
+|  SavingsAccount   |          |  CurrentAccount   |
++-------------------+          +-------------------+
+| - interestRate    |          | - overdraftLimit  |
++-------------------+          +-------------------+
+| + addInterest()   |          | + checkOverdraft()|
++-------------------+          +-------------------+
+
+                +-------------------+
+                |       Bank        |
+                +-------------------+
+                | - accountsList    |
+                +-------------------+
+                | + createAccount() |
+                | + deleteAccount() |
+                | + transferFunds() |
+                | + getAccount()    |
+                +-------------------+
+
+                +-------------------+
+                |       Main        |
+                +-------------------+
+                | + main()          |
+                +-------------------+
