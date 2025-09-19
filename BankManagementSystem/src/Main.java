@@ -37,7 +37,7 @@ public class Main {
                     double bal = sc.nextDouble();
                     System.out.print("Enter Overdraft Limit: ");
                     double limit = sc.nextDouble();
-                   // bank.createAccount(new CurrentAccount(accNo, holder, bal, limit));
+                    bank.createAccount(new CurrentAccount(accNo, holder, bal, limit));
                 }
                 case 3 -> {
                     System.out.print("Enter Account No: ");
