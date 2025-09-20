@@ -22,20 +22,24 @@ public abstract class Account {
     }
 
     public void deposit(double amount) {
-        if (amount > 0) {
-            balance += amount;
-            System.out.println("✅ Deposited: " + amount);
-        } else {
-            System.out.println("❌ Invalid deposit amount.");
+        if (amount <= 0) {
+            System.out.println("❌ Deposit must be greater than zero!");
+            return;
         }
+        balance += amount;
+        System.out.println("✅ Deposited: " + amount);
     }
 
     public void withdraw(double amount) {
-        if (amount > 0 && amount <= balance) {
+        if (amount <= 0) {
+            System.out.println("❌ Withdrawal must be greater than zero!");
+            return;
+        }
+        if (amount <= balance) {
             balance -= amount;
             System.out.println("✅ Withdrawn: " + amount);
         } else {
-            System.out.println("❌ Insufficient balance or invalid amount.");
+            System.out.println("❌ Insufficient balance.");
         }
     }
 

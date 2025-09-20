@@ -12,7 +12,11 @@ public class CurrentAccount extends Account {
 
     @Override
     public void withdraw(double amount) {
-        if (amount > 0 && checkOverdraft(amount)) {
+        if (amount <= 0) {
+            System.out.println("❌ Withdrawal must be greater than zero!");
+            return;
+        }
+        if (checkOverdraft(amount)) {
             balance -= amount;
             System.out.println("✅ Withdrawn: " + amount);
         } else {

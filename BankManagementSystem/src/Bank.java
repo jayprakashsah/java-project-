@@ -27,4 +27,27 @@ public class Bank {
             }
         }
     }
+
+    public void transferFunds(String fromAccNo, String toAccNo, double amount) {
+        Account fromAcc = getAccount(fromAccNo);
+        Account toAcc = getAccount(toAccNo);
+
+        if (fromAcc == null || toAcc == null) {
+            System.out.println("❌ One or both accounts not found.");
+            return;
+        }
+
+        if (amount <= 0) {
+            System.out.println("❌ Transfer amount must be greater than zero.");
+            return;
+        }
+
+        if (fromAcc instanceof CurrentAccount ca ? ca.checkOverdraft(amount) : fromAcc.getBalance() >= amount) {
+            fromAcc.withdraw(amount);
+            toAcc.deposit(amount);
+            System.out.println("💸 Transfer Successful: " + amount + " from " + fromAccNo + " to " + toAccNo);
+        } else {
+            System.out.println("❌ Insufficient funds for transfer.");
+        }
+    }
 }
